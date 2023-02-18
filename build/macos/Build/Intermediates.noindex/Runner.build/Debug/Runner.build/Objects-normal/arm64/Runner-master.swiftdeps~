@@ -1,0 +1,8 @@
+version: "Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)"
+options: "c2a83e3401c6f626f202be05b5998df2ea6d34bb88e8a00ef374f28157b129e0"
+build_start_time: [1676694803, 560031890]
+build_end_time: [1676694803, 585222005]
+inputs:
+  "/Users/matthewtran/AndroidStudioProjects/tinder_ui_clone_example/macos/Flutter/GeneratedPluginRegistrant.swift": !private [1676694789, 838201761]
+  "/Users/matthewtran/AndroidStudioProjects/tinder_ui_clone_example/macos/Runner/AppDelegate.swift": !private [1676694042, 588308334]
+  "/Users/matthewtran/AndroidStudioProjects/tinder_ui_clone_example/macos/Runner/MainFlutterWindow.swift": !private [1676694042, 589975833]
