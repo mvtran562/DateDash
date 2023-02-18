@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
           SizedBox(width: 16),
         ],
         leading: Icon(Icons.person, color: Colors.grey),
-        title: FaIcon(FontAwesomeIcons.fire, color: Colors.deepOrange),
+        title: Image.asset('assets/aawlogo.png', height: 100),
       );
 
   Widget buildUser(User user) {
