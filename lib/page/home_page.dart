@@ -25,6 +25,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(100),
         child: buildAppBar(),
@@ -80,7 +81,7 @@ class _HomePageState extends State<HomePage> {
               currentUsers.add(returned);
             },
             color: Colors.grey),
-        title: Image.asset('assets/aawlogo.png', height: 100),
+        title: Image.asset('assets/DateDash.png', height: 100),
       );
 
   Widget buildUser(User user) {
