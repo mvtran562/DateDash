@@ -18,7 +18,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final currentUsers = users.dummyUsers;
-  final toSend = users.dummyUsers.toList();
+  List<User> matchedUsers = [];
+  //final toSend = users.dummyUsers.toList();
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +45,7 @@ class _HomePageState extends State<HomePage> {
                           context,
                           MaterialPageRoute(
                             builder: (context) => MatchPage(
-                              data: toSend,
+                              data: matchedUsers,
                             ),
                           ));
                     },
@@ -116,9 +117,11 @@ class _HomePageState extends State<HomePage> {
   void onDragEnd(DraggableDetails details, User user) {
     final minimumDrag = 100;
     if (details.offset.dx > minimumDrag) {
-      user.isSwipedOff = true;
-    } else if (details.offset.dx < -minimumDrag) {
       user.isLiked = true;
+      matchedUsers.add(user);
+    } else if (details.offset.dx < -minimumDrag) {
+      user.isSwipedOff = true;
+      //matchedUsers.add(user);
     }
 
     setState(() => currentUsers.remove(user));
