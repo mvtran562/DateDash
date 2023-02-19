@@ -116,12 +116,12 @@ class UserCardWidget extends StatelessWidget {
             ),
             SizedBox(height: 8),
             Text(
-              user.designation,
+              user.major,
               style: TextStyle(color: Colors.white),
             ),
             SizedBox(height: 4),
             Text(
-              '${user.mutualFriends} Mutual Friends',
+              '${user.greekAffil} (Greek Life Affiliation)',
               style: TextStyle(color: Colors.white),
             )
           ],

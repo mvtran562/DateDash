@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
@@ -6,6 +8,7 @@ import 'package:DateDash/model/user.dart';
 import 'package:DateDash/provider/feedback_position_provider.dart';
 import 'package:DateDash/widget/bottom_buttons_widget.dart';
 import 'package:DateDash/widget/user_card_widget.dart';
+import 'package:DateDash/page/update_profile.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -43,7 +46,17 @@ class _HomePageState extends State<HomePage> {
           Icon(Icons.chat, color: Colors.grey),
           SizedBox(width: 16),
         ],
-        leading: Icon(Icons.person, color: Colors.grey),
+        leading: IconButton(
+            icon: Icon(Icons.person),
+            onPressed: () async {
+              User returned = await Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => profileUpdate()),
+              );
+              log("User: ${returned.name}");
+              dummyUsers.add(returned);
+            },
+            color: Colors.grey),
         title: Image.asset('assets/aawlogo.png', height: 100),
       );
 
