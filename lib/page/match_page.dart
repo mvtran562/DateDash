@@ -1,27 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:DateDash/data/users.dart';
 import 'package:DateDash/model/user.dart';
+// import 'package:DateDash/data/users.dart';
 
 class MatchPage extends StatefulWidget {
-  const MatchPage({super.key});
-
+  final List<User> data;
+  const MatchPage({Key? key, required this.data}) : super(key: key);
   @override
-  State<MatchPage> createState() => _MatchPageState();
+  _MatchPageState createState() => _MatchPageState();
 }
 
 class _MatchPageState extends State<MatchPage> {
-  final List<User> matches = dummyUsers;
   @override
   Widget build(BuildContext context) {
+    print(widget.data.length);
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Color.fromARGB(255, 144, 144, 144),
           title: const Text('Your Matches'),
         ),
         body: Column(
           children: [
             Expanded(
                 child: ListView.separated(
-              itemCount: matches.length,
+              itemCount: widget.data.length,
               itemBuilder: (BuildContext context, int index) {
                 return Container(
                   child: ListTile(
@@ -33,9 +34,9 @@ class _MatchPageState extends State<MatchPage> {
                             color: Colors.white,
                             image: DecorationImage(
                                 fit: BoxFit.cover,
-                                image: AssetImage(matches[index].imgUrl)))),
-                    title: Text(matches[index].name),
-                    subtitle: Text(matches[index].bio),
+                                image: AssetImage(widget.data[index].imgUrl)))),
+                    title: Text(widget.data[index].name),
+                    subtitle: Text(widget.data[index].phoneNumber),
                     trailing: const Icon(Icons.more_vert),
                     isThreeLine: true,
                   ),
@@ -48,30 +49,3 @@ class _MatchPageState extends State<MatchPage> {
         ));
   }
 }
-
-            
-                   
-
-  /*Widget row({required List<User> matches}) {
-
-    itemBuilder:(BuildContext context, int index){
-
-    }
-      return Row(
-        children: <Widget>[
-          Expanded(
-            child: FittedBox(
-              child: Image(image: AssetImage('${match.imgUrl}')),
-            ),
-          ),
-          Expanded(
-            child: Text('${match.name}', textAlign: TextAlign.center),
-          ),
-          // Expanded( // eventually phone number
-          //   child: Text('Craft beautiful UIs', textAlign: TextAlign.center),
-          // ),
-        ],
-      );
-    
-  }
-}*/

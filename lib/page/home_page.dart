@@ -3,12 +3,13 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:DateDash/data/users.dart';
+import 'package:DateDash/data/users.dart' as users;
 import 'package:DateDash/model/user.dart';
 import 'package:DateDash/provider/feedback_position_provider.dart';
 import 'package:DateDash/widget/bottom_buttons_widget.dart';
 import 'package:DateDash/widget/user_card_widget.dart';
 import 'package:DateDash/page/update_profile.dart';
+import 'package:DateDash/page/match_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -16,27 +17,47 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<User> users = dummyUsers;
+  final currentUsers = users.dummyUsers;
+  final toSend = users.dummyUsers.toList();
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(100),
-          child: buildAppBar(),
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(100),
+        child: buildAppBar(),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(8),
+        child: Column(
+          children: [
+            currentUsers.isEmpty
+                ? TextButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                          Color.fromARGB(255, 0, 131, 20)),
+                      foregroundColor: MaterialStateProperty.all<Color>(
+                          Color.fromARGB(255, 255, 255, 255)),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MatchPage(
+                              data: toSend,
+                            ),
+                          ));
+                    },
+                    child: Text('View Your Matches'),
+                  )
+                : Stack(children: currentUsers.map(buildUser).toList()),
+            Expanded(child: Container()),
+            BottomButtonsWidget()
+          ],
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(8),
-          child: Column(
-            children: [
-              users.isEmpty
-                  ? Text('No more users')
-                  : Stack(children: users.map(buildUser).toList()),
-              Expanded(child: Container()),
-              BottomButtonsWidget()
-            ],
-          ),
-        ),
-      );
+      ),
+    );
+  }
 
   Widget buildAppBar() => AppBar(
         centerTitle: true,
@@ -54,15 +75,15 @@ class _HomePageState extends State<HomePage> {
                 MaterialPageRoute(builder: (context) => profileUpdate()),
               );
               log("User: ${returned.name}");
-              dummyUsers.add(returned);
+              currentUsers.add(returned);
             },
             color: Colors.grey),
         title: Image.asset('assets/aawlogo.png', height: 100),
       );
 
   Widget buildUser(User user) {
-    final userIndex = users.indexOf(user);
-    final isUserInFocus = userIndex == users.length - 1;
+    final userIndex = currentUsers.indexOf(user);
+    final isUserInFocus = userIndex == currentUsers.length - 1;
 
     return Listener(
       onPointerMove: (pointerEvent) {
@@ -100,6 +121,6 @@ class _HomePageState extends State<HomePage> {
       user.isLiked = true;
     }
 
-    setState(() => users.remove(user));
+    setState(() => currentUsers.remove(user));
   }
 }
