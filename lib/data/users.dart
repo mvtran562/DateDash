@@ -1,14 +1,15 @@
 import 'package:DateDash/model/user.dart';
+//import 'package:DateDash/page/match_page.dart';
 
 final dummyUsers = [
   User(
       name: 'Matthew Tran',
-      greekAffil: 'Cal phi',
+      greekAffil: 'N/A',
       major: "COEN",
       bio: 'Videography, cars.',
       age: "19",
-      imgUrl: 'assets/user1.jpg',
-      phoneNumber: "676-889-9000",
+      imgUrl: 'assets/MattPhoto.jpeg',
+      phoneNumber: "562-889-9000",
       gradYear: "2025"),
   User(
       name: 'Anusha Kankipati',
@@ -16,25 +17,25 @@ final dummyUsers = [
       major: "COEN",
       bio: 'I like Basketball and skateboarding',
       age: "19",
-      imgUrl: 'assets/user1.jpg',
+      imgUrl: 'assets/AnushaPhoto.jpeg',
       phoneNumber: "676-889-9000",
       gradYear: "2025"),
   User(
-      name: 'Kayla Mattson',
-      greekAffil: 'Kappa Alpha Theta',
+      name: 'Jordan Mosakowski',
+      greekAffil: 'ACM',
       major: "COEN",
       bio: 'Hammocking',
       age: '19',
-      imgUrl: 'assets/user1.jpg',
+      imgUrl: 'assets/IMG_7349.JPG',
       phoneNumber: "676-889-9000",
       gradYear: "2025"),
   User(
-      name: 'Emily Hawkins',
+      name: 'John Smith',
       greekAffil: 'None',
       major: "CSCI",
       bio: 'Kayaking',
       age: "18",
-      imgUrl: 'assets/user1.jpg',
+      imgUrl: 'assets/IMG_1406.JPG',
       phoneNumber: "676-889-9000",
       gradYear: "2026"),
   User(
@@ -43,7 +44,7 @@ final dummyUsers = [
       major: "COEN",
       bio: 'Getting lit',
       age: "22",
-      imgUrl: 'assets/user1.jpg',
+      imgUrl: 'assets/IMG_7353.JPG',
       phoneNumber: "676-889-9000",
       gradYear: "2023"),
   User(
@@ -52,7 +53,16 @@ final dummyUsers = [
       major: "COEN",
       bio: 'DJing',
       age: "19",
-      imgUrl: 'assets/user1.jpg',
+      imgUrl: 'assets/IMG_7352.JPG',
+      phoneNumber: "676-889-9000",
+      gradYear: "2025"),
+  User(
+      name: 'Connor Yin',
+      greekAffil: 'Phi Delt',
+      major: "COEN",
+      bio: 'Pooping',
+      age: "19",
+      imgUrl: 'assets/IMG_7350.JPG',
       phoneNumber: "676-889-9000",
       gradYear: "2025"),
 ];

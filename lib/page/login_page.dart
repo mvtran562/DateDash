@@ -32,16 +32,13 @@ class LoginPage extends StatelessWidget {
               const SizedBox(height: 50),
 
               // logo
-              const Icon(
-                Icons.lock,
-                size: 100,
-              ),
+              Image.asset('assets/aawlogo.png', height: 100),
 
               const SizedBox(height: 50),
 
               // welcome back, you've been missed!
               Text(
-                'Welcome back you\'ve been missed!',
+                'DateDash has your next formal date...',
                 style: TextStyle(
                   color: Colors.grey[700],
                   fontSize: 16,
@@ -105,7 +102,7 @@ class LoginPage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10.0),
                       child: Text(
-                        'Or continue with',
+                        'Or...',
                         style: TextStyle(color: Colors.grey[700]),
                       ),
                     ),
